@@ -27,7 +27,7 @@ function persistence(num) {
   function calculation(nInts) {
     let newNum = 1;
     for (i = 0; i < nInts.length; i++) {
-      newNum = newNum * nInts[i];
+      newNum *= nInts[i];
     }
     count = count + 1;
     convertNum(count, newNum);
