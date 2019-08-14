@@ -3,41 +3,37 @@ multiplicative persistence, which is the number of times you must multiply the d
 you reach a single digit. */
 
 function persistence(num) {
+  // console.log(num);
+  // console.log(num.toString().length);
   let count = 0;
-  let nInts = [];
-  let digits = ("" + num).split("");
-
-  function convertNum(count, input) {
-    console.log("input: ", input);
-    console.log("count: ", count);
+  
+  function convertNum(count, num) {
+    let input = ("" + num).split("");
+    let nInts = [];
 
     for (i = 0; i < input.length; i++) {
-      console.log(input[i]);
       let temp = Number(input[i]);
       nInts.push(temp);
     }
-    console.log("nInts: ", nInts);
     if (nInts.length > 1) {
       calculation(nInts);
     } else {
+      console.log('its over!!!!');
+      console.log(count);
       return count;
     }
   }
 
   function calculation(nInts) {
-    console.log("*******************************");
-    console.log(nInts);
     let newNum = 1;
     for (i = 0; i < nInts.length; i++) {
       newNum = newNum * nInts[i];
     }
     count = count + 1;
-    console.log("count :", count);
-    console.log("new num: ", newNum);
     convertNum(count, newNum);
   }
 
-  convertNum(count, digits);
+  convertNum(count, num);
 }
 
 persistence(999);
